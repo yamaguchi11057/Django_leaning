@@ -134,3 +134,4 @@ MESSAGE_TAGS = {
 
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+#fafaS
