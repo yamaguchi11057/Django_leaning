@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Log in|PrivateDiary{% endblock title %}
+{% block active_login %}active{% endblock active_login %}
+
+{% block contents %}
+  <div class="container">
+    <div class="row">
+      <div class="my-div-style">
+        <h1>Log In</h1>
+        <form action="{% url 'account/login' %}" method="post">
+          {% csrf_token %}
+          {{form.as_p}}
+
+          {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
+          {% endif %}
+
+          <button type="submit" class="btn btn-primary">ログイン</button>
+          <p><a class="button secondaryAction" href="{% url 'account_reset_password' %}">パスワード忘れましたか？</a></p>
+        
+        </form>
+      </div>
+    </div>
+  </di>
+{% endblock contents %}
