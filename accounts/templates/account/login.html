@@ -7,8 +7,8 @@
   <div class="container">
     <div class="row">
       <div class="my-div-style">
-        <h1>Log In</h1>
-        <form action="{% url 'account/login' %}" method="post">
+        <h1>ログイン</h1>
+        <form action="{% url 'account_login' %}" method="post">
           {% csrf_token %}
           {{form.as_p}}
 
@@ -22,5 +22,5 @@
         </form>
       </div>
     </div>
-  </di>
+  </div>
 {% endblock contents %}

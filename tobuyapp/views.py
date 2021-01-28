@@ -1,8 +1,10 @@
 import logging
 from django.contrib import messages
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import InquiryForm
+from .models import Diary
 
 logger = logging.getLogger(__name__)
 
@@ -20,4 +22,11 @@ class InquiryView(FormView):
         messages.success(self.request, 'The message has been sent')
         logger.info('Inquiry sent by {}'.format(form.cleaned_data['name']))
         return super().form_valid(form)
+
+class DiaryListView(LoginRequiredMixin, ListView):
+    template_name = 'diary_list.html'
+    model =Diary
+    def get_queryset(self):
+        diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
+        return diaries
         

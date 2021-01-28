@@ -42,9 +42,18 @@
                         <li class="nav-item {% block active_inquiry %}{% endblock active_inquiry %}"><a class="nav-link" href="{% url 'tobuyapp:inquiry' %}">INQUIRI</a></li>
                     </ul>
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
-                 
-                        <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_logout' %}">ログアウト</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item {% block active_sign %}{% endblock active_sign %}">
+                                <a class="nav-link" href="{% url 'account_signup' %}">サインアップ</a>
+                            </li>
+                            <li class="nav-item {% block active_login %}{% endblock active_login %}">
+                                <a class="nav-link" href="{% url 'account_login' %}">ログイン</a>
+                            </li>
+                        {% endif %}        
                     </ul>
                 </div>            
             </div>
