@@ -158,7 +158,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_EMAIL_REQUIRED = True
 
 #ログイン/ログアウト後の推移先を設定
-LOGIN_REDIRECT_URL = 'tobuyapp:index'
+LOGIN_REDIRECT_URL = 'tobuyapp:diary_list'
 ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 #ログアウトリンクのクリック一発でログアウトする設定

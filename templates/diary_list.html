@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}日記一覧 | PrivateDiary{% endblock title %}
+
+{% block active_diary_list %}active{% endblock active_diary_list %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/clean_blog.min.css' %}">
+{% endblock head %}
+
+{% block contents %}
+    <div class="container">
+        <div class="row">
+            <div class="my-div-style w-100">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="clearfix">
+                        <a href="#" class="btn btn-primary float-right">新規作成</a>
+                    </div>
+                    {% for diary in diary_list %}
+                        <div class="post-preview">
+                            <a href="#">
+                                <h2 class="post-title">{{ diary.title }}</h2>
+                                <h3 class="post-subtitle">{{ diary.content|truncatechars:20 }}</h3>
+                            </a>
+                            <p class="post-meta">{{ diary.created_at }}</p>
+                        </div>
+                        <hr>
+                    {% empty %}
+                        <p>日記がありません。</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock contents %}
+

@@ -40,6 +40,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item {% block active_inquiry %}{% endblock active_inquiry %}"><a class="nav-link" href="{% url 'tobuyapp:inquiry' %}">INQUIRI</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item {% block active_diary_list %}{% endblock active_diary_list %}"><a href="{% url 'tobuyapp:diary_list' %}" class="nav-link">DIARY LIST</a></li>
+                        {% endif %}
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         {% if user.is_authenticated %}
