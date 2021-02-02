@@ -47,6 +47,6 @@ class DiaryCreateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.value():
+        for field in self.fields.values():
             field.widget.attrs['class'] = 'form_control'
     

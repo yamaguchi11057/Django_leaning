@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}日記編集 | PrivateDiary{% endblock title %}
+
+{% block active_diary_list %}active{% endblock active_diary_list %}
+
+{% block contents %}
+    <div class="container">
+        <div class="row">
+            <div class="my-div-style">
+                <form enctype="multipart/form-data" method="post">
+                    {% csrf_token %}
+                    <table class="table">
+                        {{ form.as_table }}
+                    </table>
+                    <button type="submit" class="btn btn-primary">更新</button>
+                    <a href="{% url 'tobuyapp:diary_detail' object.pk %}" class="btn btn-secondary ml-2">キャンセル</a>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock contents %}
