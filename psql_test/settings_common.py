@@ -80,8 +80,8 @@ WSGI_APPLICATION = 'psql_test.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'private_diary',
-        'USER': 'yamaguchi11057',
+        'NAME': 'test',
+        'USER': 'tsuyoshi',
         'PASSWORD': 'Delta383',
         'HOST': '',
         'PORT':'',
