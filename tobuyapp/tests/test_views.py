@@ -42,7 +42,7 @@ class TestDiaryCreateView(LoggedInTestCase):
         self.assertRedirects(response, reverse_lazy('tobuyapp:diary_list'))
 
         #日記データがデータベースに登録されたか検証
-        self.assertEqual(Diary.objects.filter(title='タイトル').count(), 1)
+        self.assertEqual(Diary.objects.filter(title='テストタイトル').count(), 1)
 
     def test_create_diary_failure(self):
         """新規日記作成処理が失敗することを検証する"""
@@ -51,7 +51,7 @@ class TestDiaryCreateView(LoggedInTestCase):
         response = self.client.post(reverse_lazy('tobuyapp:diary_create'))
 
         #必須フォームフィールドが未入力によりエラーになることを検証する
-        self.assertFormError(response, 'form', 'title', 'このフィールドは必須です。')
+        self.assertFormError(response, 'form', 'title', 'This field is required.')
 
 class TestDiaryUpdateView(LoggedInTestCase):
     """DiaryUpdateView用テストクラス"""

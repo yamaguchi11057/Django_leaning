@@ -6,16 +6,15 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 class TestLogin(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
-        super.setUpClass()
-        return super().setUpClass()
-        cls.selenium = WebDriver(executable_path='/Users/tsuyoshi/Documents/Python_project/Django_leaning/venv/bin')
+        super().setUpClass()
+        cls.selenium = WebDriver(executable_path='/Users/yamaguchi11057/Documents/Python/Projects/Django_leaning/.venv/lib/python3.8/site-packages/chromedriver_binary/chromedriver')
 
     @classmethod
     def tearDownClass(cls):
         cls.selenium.quit()
-        super.tearDownClass()
+        super().tearDownClass()
     
-    def test_Login(self):
+    def test_login(self):
         #ログインページを開く
         self.selenium.get('http://localhost:8000'+str(reverse_lazy('account_login')))
 
