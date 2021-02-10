@@ -26,7 +26,7 @@ class InquiryView(FormView):
 class DiaryListView(LoginRequiredMixin, ListView):
     template_name = 'diary_list.html'
     model =Diary
-    paginate_by = 2
+    paginate_by = 3
     def get_queryset(self):
         diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
         return diaries

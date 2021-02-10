@@ -41,7 +41,7 @@
                             {% endif %}
 
                             <!--ページ数表示-->
-                            {% for page_num in page_obj.paginator.pagerange %}
+                            {% for page_num in page_obj.paginator.page_range %}
                                 {% if page_obj.number == page_num %}
                                     <li class="page-item active">
                                         <a href="#" class="page-link">{{ page_num }}</a>
