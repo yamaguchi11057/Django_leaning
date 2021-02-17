@@ -18,7 +18,7 @@ EMAIL_BACKEND = 'django_ses.SESBackend'
 #ロギング
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': False
+    'disable_existing_loggers': False,
 
     #ロガーの設定
     'loggers':{
